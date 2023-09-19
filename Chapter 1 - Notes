@@ -1,0 +1,26 @@
+#CHAPTER 1
+
+print(5 * (7.0 * 3.9))
+print(3/2)
+print(5//3) #the double slash allows us to capture the coefficent of the number so 3 only dividens into 2 one time
+print(5%3) #The percentage sign allows us to get the remainder of the equation, Also called the MOD operator
+print(5 ** 2) #In order to multiply the number by an upper power we use ** instead of ^
+
+print(1000000)
+print(1_000_000) #The _ allows us to have the numbers cleaner (commas or dots wont work)
+
+print('Lukas Siemers') #Both options allow us to define a string character
+print("Lukas Siemers") # ""
+
+print(True) #Allows us to use a Boolean
+print(False) #""
+
+print(type(2)) #Allows us to see the corresponding value such as integer, boolean, String
+print(type("lukas")) #String Value
+print(type(2.3)) #Float Value
+
+a = 2
+if a % 2 == 1:
+    print('a is odd')
+else:
+    print('a is even')
