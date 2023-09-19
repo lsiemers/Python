@@ -1,0 +1,158 @@
+#CHAPTER 9 - LIST (ARRAY)
+import copy
+
+#Mutable Sequence - Allows us to change the data in the List using the position index
+a = [1,2,3,4,5,6]
+a[0] = 3    #Will change the element at the selected index
+a[-1] = 10  #Will change the last element of the list
+for i in range(len(a)):
+    print(a[i])
+    print(len(a))   #Allows us to see the size of the List, Array
+
+#Mixed types
+b = [True,[1,2,3],"Lukas"]
+for i in range(len(b)):
+    print(b[i])
+
+list1 = [1,2,3,4,5]     #First Array
+list2 = [5,6,7,8,9]     #Second Array
+c = list1 + list2       #Combining the Arrays together
+print(c)
+
+print(list1[2:4])       #just prints out the positions but list is unchanged
+list1 = list1[2:4]      #This will make a new list with the characters or numbers we have it set to
+print(list1)
+
+list1.append(40)        #Allows us to append(add) to the back of the list1
+print(list1)
+
+list1.append([0,0,0])   #Adds it as one element, so 0,0,0 will be one element
+print(list1)
+
+list1.extend([4,4,4])   #Adds individual element so instead of [4,4,4] we will have 4,4,4, we can NOT use a single element
+print(list1)
+
+print(list1.count(4))   #Will count the selected character we have in the brackets
+
+print(list1)
+
+print(list1.index(40))  #prints the index# of the character we are looking for
+
+print(list1.pop(2))     #Will pop the character at that Index so for index(0) we will get 3, remove the character at the index
+
+#Shallow Copy vs Deep Copy
+#- list1.copy
+#- Deep Copy will have the same pointer or memory address
+#   -Deep copies won't modify the value if assigned to a new variable
+import copy
+#c = copy.deepcopy(list1)
+#print(c)
+
+list1.append([77,77,77])        #creates its own brackets in the list
+list1.extend([88,88,88])        #Creates seperates values in the list
+print(list1)
+
+list1.remove(88)                #Removes the number or character Value from the list
+print(list1)
+
+list1.reverse()
+print(list1)                    #Revereses the list
+
+#The DEL operator
+
+d = [2,3,4,5]
+print(d)
+del d[1]        #Removes the index at the position of the List
+print(d)
+
+del d[1:]       #Specifies the range that we delete from [start:end]
+print(d)
+f = ['a','b','c','d','e','f','g']
+print(' - - '.join(f))      #Can only use string sequences to work, allows us to add any symbol inbetween the strings
+
+#Objects vs Values
+"""
+Values:
+Primitive data: int,bool,double,string.....
+a = 5 
+b = a
+a = 10
+print: a = 10 & b = 5
+
+Objects:
+Sequences, List, Arrays....
+a = [1,2,3]
+b = a
+a[0] = 5
+print: a = 5,2,3 & b = 5,2,3
+
+The operator 'is' allows us to see if 2 Objects are the same  
+'==' will Check for the same content in both objects
+a = [1,2,3]
+b = [1,2,3]
+a == b  |same Content but two different objects
+a is b = False 
+
+s = 3
+if type(s) is str:              |Checks if the vatiable is a string before continuing
+    print("My number is" + s
+"""
+
+#Aliasing - Giving the same object a different name
+a = [1,2,3]
+b = a
+print(b)
+
+def maxInList(lst):
+    if len(lst) == 0:   #Checks if the list is valid
+        return None
+    res = lst[0]        #Assigns the first element to a variable
+    for i in range(1,len(lst)):
+        res = max(res,lst[i])   #assigns the max value from current and position at index i
+    return res
+
+print(maxInList([4,3,10,0]))
+print(max([4,3,10,0]))          #Gives us the same results
+
+
+
+def doubleElementsInList(lst):
+    for i in range(len(lst)):
+        lst[i] = lst[i] * 2     #or lst[i] * lst[i]
+    print(lst)
+
+l = [5,6,7,8]
+(doubleElementsInList(l))
+print(l)
+
+#Pass by Refernce - Passes same data with different objects
+
+
+#MAP FILTER AND REDUCE
+    #-Mapping
+l = [2,3,4] #Int list
+strL = []   #None defined list
+for e in l:
+    strL.append(str(e))     #assigning string of e which is int to strL
+print(strL)                 #Allows us to change the type of data and add it into a new list
+
+    #-Filter
+l = [1,2,3,4,5,6,7,8,9,10]
+even_nums = []
+for e in l:
+    if e % 2 == 0:          #Filtering for even Numbers
+        even_nums.append(e) #assigning those even numbers in the new list
+print(even_nums)
+
+    #-Reduce
+print(max(l))   #If it reduces the value of the list or variable then it is a reduction
+
+strs = ["a","b","c"]
+newstrs = '-'.join(strs)
+print(newstrs)
+
+dic = {'red':1,'blue':2, 'green':3}
+print(dic['blue'])
+
+
+
