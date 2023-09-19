@@ -1,0 +1,83 @@
+"""
+You are supposed to fill the missing code that does what is specified in the
+comments.
+Your name:Lukas Siemers
+Date: 4/10/2023
+"""
+"""
+Define a function called 'best_performance_courses' that takes a dictionary of the
+following format and
+returns the course name(s) with the highest score. Call it with the following
+sample dictionary and display
+the result course name list.
+Your function should work with any dictionary of this format, not just the
+following one.
+grades1 = {
+'Physics': 82,
+'Computer Science': 82,
+'Math': 65,
+'history': 75
+}
+grades2 = {
+'Physics': 82,
+'Computer Science': 82,
+'Math': 90,
+'history': 90
+}
+>>>> best_performance_course(grades1)
+['Physics', 'Computer Science']
+>>>> best_performance_course(grades2)
+['Math', 'history']
+"""
+grades1 = {'Physics': 82, 'Computer Science': 82, 'Math': 65, 'history': 75}
+grades2 = {'Physics': 82, 'Computer Science': 82, 'Math': 90, 'history': 90}
+
+def best_performance_courses(dic_grade):    #Function Definition (Takes a one variable)
+    max_score = max(dic_grade.values())     #Assigns the max score from the dictionary that we pass to the variable
+    best_courses = [description for description, grade in dic_grade.items() if grade == max_score]  #List comprehension to identify the course names and grades, if the there is other grades equal to the max score then we add them to the list
+    return best_courses     #Returning the courses
+print(best_performance_courses(grades1))    #Change the dictionary, such as grades1 or grades2 or any other Dictionary
+
+
+"""
+Define a function called 'uniq_letters' that takes a string and returns a list of
+letters that only occur once.
+After the function definition, ask the user to type a string and call this function
+with user input and display
+the result letter list. You are REQUIRED to use dictionary in your solution.
+>>>> user_input = 'abcdefgabefg'
+>>>> uniq_letters(user_input)
+['c', 'd']
+"""
+user_input = input("Please enter a letters:")   #User input from user
+
+def uniq_letters(string):       #Function Def
+    frequency = {}              #Empty Dictionary
+    for letter in string:       #Looping thru every letter in the string that we got from the user
+        frequency[letter] = frequency.get(letter,0)+1   #Obtains the letters, if letter is already existing then we add +1
+    uniq_letters = [letter for letter, count in frequency.items() if count == 1] #List comprehension letter and count in the dictionary frequency, if the count is equal to 1
+    return frequency    #Returning the Dictionary
+print(uniq_letters(user_input))
+
+"""
+Define a function named dice_odds that returns a dictionary with possible sums
+between two 6-face dice as
+keys and a list of all combinations (tuples) as values.
+Your output should look like the following output.
+>>>> dice_odds()
+>>>> {2: [(1, 1)], 3: [(1, 2), (2, 1)], 4: [(1, 3), (2, 2), (3, 1)], 5: [(1,
+4), (2, 3), (3, 2), (4, 1)], 6: [(1, 5), (2, 4), (3, 3), (4, 2), (5, 1)], 7: [(1,
+6), (2, 5), (3, 4), (4, 3), (5, 2), (6, 1)], 8: [(2, 6), (3, 5), (4, 4), (5, 3),
+(6, 2)], 9: [(3, 6), (4, 5), (5, 4), (6, 3)], 10: [(4, 6), (5, 5), (6, 4)], 11:
+[(5, 6), (6, 5)], 12: [(6, 6)]}
+"""
+def dice_odds():    #Function Definition
+    dict_dice = {}  #Empty Dictionary
+    for i in range(1,7):    #First loop, 1-7 since exclusive
+        for k in range(1,7):    #Second loop 1-7 since exclusive
+            sum = i+k       #The sum of each Dice Roll
+            if sum not in dict_dice:    #if the sum is not in the Dictionary
+                dict_dice[sum] = [(i,k)]    #then we add the position of the dice in the dictionary with the format (dice1,dice2)
+            else:
+                dict_dice[sum].append(((i,k)))  #Otherwise we apend the different combinations we have with the current dice rolls such as 2+1 = 3, 1+2 = 3 ...
+print(dice_odds())  #Print and def call
