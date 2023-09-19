@@ -1,0 +1,33 @@
+#CHAPTER 2
+
+a = 8               #Integer
+name = "Lukas"      #String
+Correct = False     #Boolean
+Score = 67.9        #Float
+
+print(name, " " ,Correct, Score, a)
+
+#Script mode is creating a file such as above and typing code in the file
+#Python Console is called REPL and stands for (Read Code,Evaluate Code,Print Results,Loop Again) which is also known as interactive mode
+
+"""
+Another way to comment multiple lines of code
+"""
+
+x,y,z,r = 'Thomas',3,43,False   #Allows us to define multiple values in the same line, string,integer,float,boolean
+print (x,y,z,r)
+
+age = 13
+for i in range(4):
+    age += 1
+    print(age)
+
+b = y * 2 // 3
+
+test = 'Lukas ' + "Siemers" #This is called concatanate
+print(test)
+test2 = "Lukas Siemers" * 2 #This will ouput the string twice
+print(test2)
+
+                                #Control + Slash to get highlited code in comment, Shift + " to get highlited code in string
+
