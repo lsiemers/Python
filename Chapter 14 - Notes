@@ -1,0 +1,81 @@
+#CHAPTER 14
+
+#READING
+
+File = open("Test File.txt.txt",'r')        #How to open a text file (open(File,Mode))
+for sentence in File:                       #Loop thru the file
+    print(sentence,end="")                  #Print each line to read the textfile, User end="" to have the empty spaces removed
+print()
+
+
+File.close()
+File = open("Test File.txt.txt",'r')        #How to open a text file (open(File,Mode))
+l = (File.readline())
+print(l)
+
+
+File.close()
+File = open("Test File.txt.txt",'r')
+print(File.read(5))
+
+#WRITING
+
+File = open("newFile","w")          #Creating a new file for Writing
+File.write("Today is Tuesdays the 18th\n")
+File.write("Tomorrow is Wednesday the 19th\n")
+File.close()
+File = open("newFile",'r')
+for s in File:
+    print(s,end='')
+
+#APPENDING
+
+File = open("newFile","a")
+File.write("It is Rainy this week\n")
+File.close()
+File = open("newFile",'r')
+for s in File:
+    print(s,end='')
+print()
+print()
+#EXEPCTION
+filename = "NewdwFile"
+try:
+    fhr = open(filename,"r")
+except:
+    print("File","'"+filename+"'"," not found, Create a new File to continue")
+else:
+    print(filename+" was opened successfully!")
+finally:
+    print("This will always be Executed!")
+
+#AUTO CLEAINING USING WITH
+
+filename = "NewFile"
+try:
+    with open(filename,"r") as file:
+        print(file.read(2))
+        print(file.read(5))
+
+except:
+    print("File","'"+filename+"'"," not found, Create a new File to continue")
+else:
+    print(filename+" was opened successfully!")
+finally:
+    print("This will always be Executed!")
+
+#FORMAT OPERATOR % (not Preferred)
+
+print("%d %d %d" % (1,2,3))
+
+#str.format() (Preferred)
+name_list = ["Lukas","Timmy","Carl"]
+jobs_list = ['Janitor','Student','Scientist']
+name = "Lukas Siemers"
+age = 25
+string = "My Name is {1} and I am {0} years old.".format(age,name)
+print(string)
+print()
+for i in range(len(name_list)):
+    for k in range(len(jobs_list)):
+        print("My name is {} and I am a {}.".format(name_list[i],jobs_list[k]))
