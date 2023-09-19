@@ -1,0 +1,110 @@
+"""
+You are supposed to fill the missing code that does what is specified in the comments.
+Your name: Lukas Siemers
+Date: 3/24/2023
+"""
+
+"""
+ for loop 
+"""
+n = 3
+# Ask the user to type integers one the same line and display their sum. Repeat this n time.
+list = []                                                   #Empty list
+total = 0                                                   #Initilazing total
+for i in range(n):                                          #looping for the range of n
+    user_input = (input("Please enter an integer: "))       #User input
+    list = (map(int,user_input.split()))                    #Adding the numbers of the user to the list converted as an integer
+    total += sum(list)                                      #Adding the list up
+print("The sum of the Integers are:", total)
+print(" ")
+
+
+ints = [-2, 3, 4, -5, 6, 7, -8]
+# Find the min and max values in the given list ints, display the results like
+# max: 7
+# min: -8
+
+max_num = 0
+min_num = 0
+for num in ints:
+    if num > max_num:   #if the current number is greater then max_num we assign it to max
+        max_num = num
+    if num < min_num:   #if the current number is less than ,in we assign it to max
+        min_num = num
+print("max:", max_num)
+print("min:", min_num)
+
+#This would be another way to determine the max and min without a loop, I wasnt sure but figured you wanted us to use loops
+
+#print("max: ",max(ints))
+#print("min: ",min(ints))
+
+print(" ")
+
+
+# Display in descending order the numbers in the inclusive range [1-50] that are a multiples of 3 and 4.
+# The output should be:
+# 48
+# 36
+# 24
+# 12
+
+list = []                           #Empty Array
+for i in range(1,51):               #Looping from 1 - 51
+    if i % 3 == 0 and i % 4 == 0:   #If the remainders are 0
+        list.append(i)              #Adding to the Array
+list.reverse()                      #Reversing the Array
+for number in list:                 #Looping indiviual numbers for displaying
+    print(number)
+
+print(' ')
+# Use a loop to display the first six terms of a[n], where a[n] = 2a[n–1] + a[n–2], a[1] = 1, and a[2] = 1.
+# n starts with 1 in this problem.
+# sample output: [1, 1, 3, 7, 17, 41]
+a = [1,1]                       #Array of the a[1] and a[2]
+for i in range(3,7):            #The next range for our loop
+    i = 2*a[i-2]+a[i-3]         #Equation
+    a.append(i)                 #Adding the numbers to the array
+
+print(a)
+"""
+a[1]=1
+a[2]=1
+a[3]= 2a[2] + a[1]=2*1+1=3                               #n=3
+a[4]=2a[3] + a[2]                                       #n=4
+"""
+
+"""
+ while loop 
+"""
+print(" ")
+import random
+randomint = random.randint(1, 1000)         #Creating 1 random number to start
+# The above code gives you an example of generating a random integer between 1 and 5.
+# Write a while loop to keep generating random numbers from range(1,1000) and display the numbers
+# until 888 is generated. At the end, display 'xxx random numbers were generated before 888.'
+# Run this multiple times. You should get different numbers for xxx.
+
+looping_times = 1                           #Counter starting at 1 since we have already done 1 random number above
+while randomint != 888:                     #While our random number is not 888
+    randomint = random.randint(1, 1000)     #Generating random number
+    looping_times += 1                      #Counting the loops
+print(looping_times, "random numbers were generated before 888")
+
+
+# Generate 100 random numbers from range (1,1000) and only display the perfect square numbers.
+# A perfect square number is an integer that is the square of another. A function is given for
+# you to check if a number is perfect square. You may get different output every time you run
+# this loop.
+print(" ")
+import math
+def is_perfect_square(n):
+        return math.sqrt(n) % 1 == 0    #to check for perfect sqaure
+square_list = []                        #Creating an Array to hold out random numbers
+num = 0                                 #Initalizing out counter
+while num != 100:                       #While counter is not 100
+    rand = random.randint(1,1000)       #Random number
+    num += 1                            #increment counter
+    if is_perfect_square(rand):         #Funtion call to check if the current random number is a perfect square
+        square_list.append(num)         #Adding that perfect sqaure to the Array
+print(square_list)
