@@ -1,0 +1,37 @@
+#CHAPTER 7
+
+#   While Condition:
+#       loop body
+
+n = 10
+while n >= 0:   # in order to stop the While loop we need to integrate a counter
+    print(n)
+    n = n - 1   # 10 - 1, all the way till 0 and then the condition of the loop will be met
+print("Done")
+
+import random   #we import random to get the random function which allows us to use random integers in the Range
+random_number = random.randint(0,9)     #Random number generated from 0 till 9
+guess = int(input("Please guess the random number I get from 0 - 9:"))         #we need to specify the Type of data Input, otherwise it will be a String
+# Casting - Changing the type of data from one type to another (string -> int)
+count = 0       #Adding a counter so that the user only has 10 tries
+while count >= 10:
+    count += 1  #Incrementing our Counter
+    break
+while guess != random_number:
+    guess = int(input("Please try Again:"))
+
+
+def squareRoot(a):
+    x = a/2
+    while True:
+        y = (x+a/x)/2
+        if y == x:
+            break
+        x = y
+    return y
+print(squareRoot(16))
+
+abs(-.32)   #will gives us a positive integer of the absolute value
+
+#Leetcode.com for future practice to help problem solving skills
+
