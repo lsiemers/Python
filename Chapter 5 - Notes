@@ -1,0 +1,31 @@
+#CHAPTER 5
+
+#Floor division A//B gives us the qoutient
+print(5//3)
+print(5/3)
+
+#Modulus (MOD) operator, gives us the remainder of the equation
+print(5%3)
+print(-5%3)         # negative gives us 1 since -5 = -2 * 3 + r, r(remainder) is always non negative
+
+import math
+
+print(math.remainder(5,3))
+
+#Boolean is either True or False
+#Relational Operators: =, ==, !=, <=, >=, <, >
+#Operational Operators: and, or, not
+
+print(4>3)
+print(6==6 and 3>2)
+
+#IF statements
+#if condition:
+#   Do something
+#Semi-Colon allows us to use multiple statements on one line, so Do someting; Do someting
+d=8
+if d % 2 == 0: print("D is even")   #Compound statement for displaying
+
+#PASS statement
+if d % 3 == 0:
+    pass        #this is called a pass statement
