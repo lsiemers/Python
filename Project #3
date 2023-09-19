@@ -1,0 +1,93 @@
+"""
+You are supposed to fill the missing code that does what is specified in the comments.
+Your name: Lukas Siemers
+Date: 2/1/2023
+"""
+score = 78
+"""
+Define a function named 'pass' that takes a numeric score, and returns if the student passes a course.
+If the score is greater than or equal to 70, the student passes the course. Otherwise, not.
+Call this function with appropriate arguments and display the result with extra helpful info, such as
+'Did the student pass this course? True/False'
+"""
+
+def pass_(score):       #Function definition with arguemnt
+    if score >=70:              #if the score is equal or greater than 70
+        is_passing = True       #The variable is_passing will be True
+    else:
+        is_passing = False      #Else it will be False
+    return is_passing           #Returning the boolean is_passing
+
+print("Did the student pass this course? ", pass_(score))   #Displaying and score has already been defined above
+
+"""
+Define a function named 'get_A' that takes a numeric score, and returns if the student gets an A for a course.
+If the score is within [90-100], the student gets an A. Otherwise, not.
+Call this function with appropriate arguments and display the result with extra helpful info, such as
+'Did the student get an A for this course? True/False'
+"""
+
+def get_A(grade):                                                       #Function definition
+    if grade >= 90 and grade <= 100:                                    #if grade is equal or greater than 90 and equal or less than 100
+        passing = True                                                  #passing will become True
+    else:
+        passing = False                                                 #Else passing will become False
+    return passing                                                      #Returning passing
+print("Did the student get an A for this course? ", get_A(grade=89))    #Displaying
+
+"""
+Define a function named speed_match that takes three numeric parameters, the speed in mbps you bought from an ISP 
+(Internet Service Provider), the speed of the modem you got, and the speed of your router, returns if you can maximize
+your internet performance. If router_speed >= isp_speed and modem_speed >= isp_speed, your internet performance will 
+be maximized.
+Call this function with appropriate arguments and display the result with extra helpful info, such as
+'The ISP speed I purchased is 1000 mbps (about 1 gbps). My modem speed is 2.5 gbps. My router speed is 1 gbps. 
+Can I get the optimal internet speed? True/False'
+"""
+
+def speed_match(ISP,modem,router):                      #Function Definition with 3 arguments
+    if router >= ISP and modem >= ISP:                  #If router speed is greater or equal to ISP speed and modem Speed is greater or Equal to ISP
+        internet_performance = True                     #internet performace is true
+    else:
+        internet_performance = False                    #Else internet performance is False
+    return internet_performance                         #Returning Internet performance
+print("The ISP speed I purchased is 1000 mbps (about 1 gbps). My modem speed is 2.5 gbps. My router speed is 1 gbps.Can i get the optimal internet speed? ", speed_match(ISP=1000,modem=2500,router=1000))   #Displaying
+
+"""
+There is a built-in function called len that takes a string and returns its length, namely the number of characters.
+Define a function named isValidPassword that takes a password string, returns if it is a valid password. A password 
+must be at least 8 characters but at most 12 to be valid.  
+Call this function with appropriate arguments and display the result with extra helpful info, such as 
+'The password "Abc1234" is not valid.' or 'The password "Abcd12345" is valid.'
+"""
+
+def isValidPassword(password):                              #Function Defintion with 1 argument
+    if len(password) >= 8 and len(password) <= 12:          #if password length is equal or greater than 8 and equal or less than 12
+        valid = True                                        #vaild is True
+        print("The password ", password, "is valid." )      #Output statement in the If statement to display valid the Password
+    else:
+        valid = False
+        print("The password ",password, "is not valid.")    #Output statement in the If satement to display invalid Password
+    return valid                                            #We dont need to return valid since we are displaying inside the statment
+isValidPassword(password="ABC12345")                        #Function and argument definition
+
+
+# Following are variables describe person P's feeling now
+
+warm = False
+dry = True
+rich = False
+hungry = False
+
+"""
+If miserable is defined to be either "cold and wet", or "poor and hungry", write a boolean expression using the above
+4 variables to determine if P is miserable. Display a message in this format, "P is miserable? True/False". 
+"""
+
+def feelings(warm,dry,rich,hungry):                     #Function Definition with all 4 arguments
+    if (warm == False and dry == False) or (rich == False and hungry == True):  #Testing if the condiotions are True then P is miserable
+        P = True                #I used an or statement since only 2 of the 4 arguments have to match for P to be miserable
+    else:
+        P = False                                       #Else P is not miserable
+    return P                                            #returning the Boolean
+print("P is miserable? ", feelings(warm,dry,rich,hungry))   #Display and arguement calling
