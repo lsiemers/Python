@@ -1,0 +1,140 @@
+#TUPLES - CHAPTER 12
+
+nums = 1,2,3        #Is a Tuple
+a, b, c = nums
+x, y = 3,4
+
+print(nums[:2])     #SLICING IN TUPLE
+
+
+x = 5,             #Allows us to create a Tuple even with a single integer
+
+t = (1,2,3,4)
+print(list(t))  #Converted Tuple to a list
+print(tuple(list(t)))   #Converted back to a Tuple
+
+#TUPLE Can not be changed when inside a Tuple
+
+
+a = (1,2,100)
+b = (1,3,4)
+print(a < b)
+
+a = 1
+b = 2
+c =3
+d = 4
+a,b,c,d = d,c,b,a
+print(a,b,c,d)
+
+qoutient, remainder = (divmod(10,7))
+print(remainder,qoutient)
+
+
+def min_max(lst):
+    return min(lst), max(lst)
+
+result = min_max([1,4,100])
+print(result[0])
+
+
+def test(*args):        #The Star allows us to put the argument inside a tuple
+    print(args)
+
+test(1,2,3,4,5,6,7,8)
+
+a = 1,2,3
+def test2(a,b,c):
+    print(a,b,c)
+test2(*a)
+
+
+lst = ['abc','xxxxxx', 'yyyy']
+rlst = []
+for string in lst:
+    rlst.append(len(string))
+
+print(rlst)
+
+print(list(map(len,lst)))   #Same results as above (list format(map(the number of characters, in our array)))
+
+#Filter - selection of some elements in a list (collection) based upon some criteria
+
+print(list(filter(lambda x: len(x) > 3, lst)))  #Same as if len(string) > 3: Display (So if the string length is greater than 3)
+
+#Reduce is getting a single value from a list (collection), doing aggregation
+#   such as total,average,max,min
+
+total_chars = 0
+for string in lst:
+    total_chars += len(string)
+
+print(total_chars)
+print(sum(map(len,lst)))    #Same as the reduction above
+
+#List comprehension = [operation for elem in lst]
+
+print([len(string) for string in lst])  #Shows us the characters for each word
+
+lst = [1,2,3,4,5]
+
+print([2*n for n in lst])       #This will double everything in the lst
+
+#Filter comprehension = [s for s in t
+
+lst = ['AAA','abc','BAD','good']
+print([x for x in lst if x.isupper()])  #Filters the string for just uppercase letters
+print([x + "$$$" for x in lst if x.isupper()])      #Both filter and map (we are adding dollar signs to the back of the strings)
+
+
+#List comprehension is to generate a new list, list comprehension is not doing reduction
+
+print(any([False,True,False]))      #if there is any elements that is true then the expression will return a True
+
+dry = False
+poor = False
+cold = False
+print(any([not dry and cold, poor and cold]))
+
+
+dict = {"sedan" : 1500, "SUV" : 40000, "Pickup" : 3000}
+
+lst = [k.upper() for k,v in dict.items() if v < 5000]
+print(lst)
+
+
+rng = range(1,1001)
+lst = [number for number in rng if number % 7 == 0]
+print(lst)
+
+"""
+def has32(i):
+    for x in range(1,1000):
+        if x != 3:
+            continue
+        else:
+            return x
+            break
+
+
+lst3 = [x for x in rng if has32(x)]
+print(lst3)
+"""
+def has3(i):
+    while i % 10 != 3:
+        i //= 10
+        if i == 0:
+            break
+    return i != 0
+
+lst2 = [x for x in rng if has3(x)]
+
+print(lst2)
+
+
+list_a = [1,2,3,4]
+list_b = [2,3,4,5]
+
+print([x for x in list_a for y in list_b if x ==y])
+
+
