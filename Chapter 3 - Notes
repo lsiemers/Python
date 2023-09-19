@@ -1,0 +1,46 @@
+#CHAPTER 3
+
+#Function - a named sequence of statement that performs a computation
+
+print("This is a function")
+
+print(type(1))                                  #Defines the function type (1) is an Integer
+
+print("My score is: " + str(80))                #cacentane the string "My score is" and the number 80 that has been changed to a string
+print("Am I passing this Class? " + str(True))  #Same with Boolean
+print("My Score is: " + str(80.25))             #Same with Float values
+
+import random                                   #In order to use it we need to Import random from the Library
+random.randint(3,10)                            #Creates a random Number from 3 till 10
+
+age = int("25")                                 #Allows you to use an String to integer
+int(3.25)                                       #This is called Casting or type Conversion, will only display 3 since its an integer
+int("1"+"2")                                    #Would equal to 12 since the string operators cant add and it would display 1 and 2 = 12
+float(2)                                        #Will change 2 to 2.0
+type(float("2.52"))                             #Determines the Type of function we have, in this Csae it would be a Float
+len("Hello")                                    #Gives us the length of the characters inside the statement
+
+import math                                     #Importing Math functions
+print(math.sqrt(25.25))                         #Takes the Squareroot of 25.25, it takes in a Float
+print(math.pow(2,4))                            #Takes the power of the numbers in the statment
+math.ceil(4.5)                                  #Gives us the Ceiling of the number which would be 5
+math.floor(4.5)                                 #Gives us the Floor of the number which would be 4
+math.log10(1000)                                #Gives us the Log of 1000 which would equal to 3 = 10*10*10
+
+def greet():                                    #Create the Function with def and FunctionName():
+    print("How are you?")                       #Define the Function, so we know whats in the Function
+
+greet()                                         #Calling the Function with no arguement
+
+def greet_somebody(name):                       #Function with an argument
+    print("How are you", name, "?")             #Add the Arguemnt in the print statement
+
+greet_somebody("Lukas Siemers")                 #Call the Function with the argument content
+
+
+def Area_rect(width,length):                    #Multiple Arguements in the Function
+    return width * length                       #Return to return the Functions Value
+
+area = Area_rect(2,2)                           #Defining the length and width of the argument
+print(area)                                     #Calling the Function to print
+
