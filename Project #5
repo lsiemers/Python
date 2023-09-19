@@ -1,0 +1,151 @@
+"""
+You are supposed to fill the missing code that does what is specified in the
+comments.
+Your name: Lukas Siemers
+Date: 3/5/2023
+"""
+"""
+ 1. Write a function called eval_loop that iteratively prompts the user, takes the 
+resulting input string and evaluates it using eval, and prints the result. This ends when
+the user typed "Done" or "done"
+"""
+def eval_loop():            #FUNCTION with no variable since that will be declared when we get input
+    while True:             #Looping
+        u_input = input("Please enter Something or type Done or done to end:")  #user input statement
+        if u_input == "done" or u_input == "Done":  #if the user input is done or Done then it will break
+            break
+        sum = eval(u_input)     #otherwise we will evalute the input if it is a mathematical equation
+        print(sum)              #Print the results
+print(eval_loop())              #Function Call
+"""
+ 2. Write a function "countEven" that takes a sequence of integers and returns the 
+number of even numbers in that sequence. Test it with the following sequence a and print the result.
+    Sample:
+        Input:      a = [1,2,3,4,8,6]
+        Returns:    4
+"""
+print()
+print()
+a = [1, 2, 3, 4, 8, 6]      #Our Array
+counter = 0                 #pre defined counter variable
+def countEven(a,counter):   #Function definition
+    for i in range(len(a)): #Looping thru the Array
+        if a[i] % 2 == 0:   #if Array index value at current position has no remainder
+            counter += 1    #Add one to the counter
+    return counter          #Return counter for displaying
+print(countEven(a,counter))
+
+"""
+ 3. Display the following table with loops.
+    'x' is filled in the table entry if the row number can divide the colum number
+    'o' is filled otherwise 
+    You also need to display the header numbers and the left most number for each row.
+    Use tabs for alignment. 
+  1 2 3 4 5 6 7 8 9
+1 x x x x x x x x x
+2 o x o x o x o x o
+3 o o x o o x o o x
+4 o o o x o o o x o
+5 o o o o x o o o o
+6 o o o o o x o o o
+7 o o o o o o x o o
+8 o o o o o o o x o
+9 o o o o o o o o x
+"""
+print()
+print()
+
+print( end="\t")    #printing the header Row
+for i in range(1,10):   #Looping the numbers 1 thru 10 for our row
+    print(i,end="\t")   #Printing the number of the position i
+print()                 #This line is for the format of the table
+
+for j in range(1,10):       #Printing the other row on the side
+    print(j,end="\t")       #Printing the number of the position j
+    for k in range(1,10):   #This loop is for the remainder part
+        if k % j == 0 or k % j == 0:    #If there is no remainder such as 1 and 1
+            print("x",end="\t")
+        else:
+            print("o",end="\t")
+    print()
+"""
+ 4. Define a function named sum that takes a numeric list and a boolean parameter, and returns a number. 
+ If the boolean parameter is true, then sum up only the non-negative numbers; otherwise sum up the negative numbers.
+    Call this function with input_numbers and try both True and False for the second parameter. Display the result. 
+
+    input_numbers = [1, -2, 3, 4, -8, 0]
+"""
+
+print()
+print()
+
+positive = 0                        #Defining variables for counter positive
+negative = 0                        #Defining variables for counter negative
+input_numbers = [1, -2, 3, 4, -8, 0]    #Our Array
+is_true = True                      #Boolean variable
+
+def sum(input_numbers,is_true,positive,negative):   #Function definition
+    if is_true == True:                             #As long as boolean variable is equal to True
+        for number in input_numbers:                #looping thru the Array
+            if number > 0:                          #If the number is greater than 0
+              positive += number                    #Positive counter
+        return positive                             #Return the counter
+    elif is_true == False:                          #If the boolean variavle is equal to False
+        for number in input_numbers:                #Looping thru the Array
+            if number < 0:                          #If the number is less than 0
+                negative += number                  #Negative Counter
+        return negative                             #Return the Counter
+print(sum(input_numbers,is_true,positive,negative)) #Function call
+
+"""
+ 5. Define a function named is_palindrome that takes a string, and returns a boolean value that denotes
+    if the parameter string is a palindrome. A palindrome is a string that is symmetric.
+    For example, 'abcba' is a palindrome while 'abcab' is not. An empty string or a single-character string is also a palindrome.
+    Implement this function with a while loop.
+
+    Examples: Use the provided code for testing.
+      is_palindrome("abcba") -> True
+      is_palindrome("abccba") -> True
+      is_palindrome("") -> True
+      is_palindrome("c") -> True
+      is_palindrome("ab") -> False
+      is_palindrome("abab") -> False
+
+    Hints:  Use two variables i and j, one pointing to the beginning of the string 
+and the other the end 
+            of the string. As soon as the characters at i and j are not equal, 
+return False. Otherwise,
+            increment i and decrement j, recheck. Repeat this until i and j meets. 
+If no mismatch is found,
+            return True.
+
+"""
+print()
+print()
+
+def is_palindrome(s):   #Function Definition
+    i=0                 #variable for incrementing
+    j=len(s)-1          #assigning the length of the string to j
+    while i <= j:       #Looping while i is less or equal to j
+       if s[i] != s[j]: #If s[at current position] is not equal to s[at current postion]
+        return False    #returning False
+       i += 1           #incrementing i
+       j -= 1           #decrementing j
+    return True         #True if both are equal to the end
+
+
+print(is_palindrome("abcba"))
+print(is_palindrome("abccba"))
+print(is_palindrome(""))
+print(is_palindrome("c"))
+print(is_palindrome("ab"))
+print(is_palindrome("abab"))
+# You are supposed to get
+"""
+True
+True
+True
+True
+False
+False
+"""
