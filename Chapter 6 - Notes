@@ -1,0 +1,67 @@
+#CHAPTER 6
+#
+# def test():
+#     return 3    #We dont need to identify the value we are returning, we can just return
+#
+# b = test()
+# print(type(b))
+#
+# def display_menu():
+#     menu = """
+#         Please enter an optiom(1-4):
+#         1. - ADD
+#         2. - Subtraction
+#         3. - Division
+#         4. - Multiplication
+#     """
+#     print(menu)
+#
+# menu = display_menu()
+#
+#     if menu == None:
+#         print("Nothing to return")
+#     else:
+#         print(type(display_menu()))
+#
+
+# def hanoi(disk_small,disk_normal,disk_large,pole_A,pole_B,pole_C):
+#
+#     pass
+
+def hanoi(disks,start_pole,target_pole):
+
+    if disks == 1:
+        print("Move Disk from",start_pole, "To", target_pole)
+        return
+    remaining_pole = 0
+    if start_pole == 1 and target_pole == 3:
+            remaining_pole = 2
+    elif start_pole == 1 and target_pole == 2:
+            remaining_pole = 3
+    elif start_pole == 2 and target_pole == 3:
+            remaining_pole = 1
+    elif start_pole == 2 and target_pole == 1:
+            remaining_pole = 3
+    hanoi(disks-1,start_pole,remaining_pole)
+    print("Move Disk from",start_pole, "To", target_pole)
+    hanoi(disks-1,remaining_pole,target_pole)
+
+hanoi(7,1,3)
+
+
+def test(flag):
+    if flag == 1:
+        return 10
+    elif flag == 2:
+        return "10"
+    elif flag == 3:
+        return False
+
+r1 = test(1)    #integer
+r2 = test(2)    #String
+r3 = test(3)    #Boolean
+
+if isinstance(r1,int):                      #isinstance allows us to check the type of variable we are using before doing computation
+    print("R1 is an Integer")
+
+print("R1: -",r1," R2 -",r2," R3 -",r3)
