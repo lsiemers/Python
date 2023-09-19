@@ -1,0 +1,76 @@
+"""
+You are supposed to fill the missing code that does what is specified in the
+comments.
+Your name: Lukas Siemers
+Date: 2/13/2023
+"""
+"""
+Part 1:
+Define a function named 'calc' that takes two numbers and an operator and returns 
+the calculation result.The operator could be either '+', '-', '/', '*', or '**' 
+only. If the operator is "/", then divide the first number by the second. If the 
+operator is '**', raise the first number to the second number'th power. 
+"""
+def calc(operator,num1,num2):   #Function call with 3 arguemnts
+    if operator == "+":
+        return num1 + num2      #Returning the addition
+    elif operator == "-":
+        return num1 - num2      #Returning the Subtraction
+    elif operator == "*":
+        return num1 * num2      #Returning the Multiplication
+    elif operator == "/":
+        return num1 / num2      #Returning the Division
+    elif operator == "**":
+        return num1 ** num2     #Returning the power
+    elif operator == "":
+        print("Nothing selected")       #When the user doesnt select any input
+
+menu = (""" Please choose one of the following operations to perform:   #Print Menu
+0. Nothing
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+5. Exponentiation
+""")
+print(menu) #Prints the Menu above
+option = int(input('Type the operation number and press Enter:'))   #User input choice
+num1 = int(input('Please enter the first number:'))                 #User input choice
+num2 = int(input('Please enter the second number:'))                #User input choice
+"""
+Part 2:
+The above code will display a menu to the user prompting the user to choose a 
+calculation to perform then two numbers. (You can comment them out by selecting the
+code and press Ctrl + / when you test the following code and don't want to run this
+part because it waits for you to type inputs.) 
+After the user enters the two numbers, call 'calc' with the entered numbers and the
+corresponding operator. Display the calculation result. You need to map the option 
+numbers to the corresponding operators required by the function 'calc'.
+"""
+operator = 0        #Operator starts at 0
+if option == 0:     #If the menu option is equal to the Number we will assign an operator to it
+    operator = ""
+elif option == 1:
+    operator = "+"
+elif option == 2:
+    operator = "-"
+elif option == 3:
+    operator = "*"
+elif option == 4:
+    operator = "/"
+elif option == 5:
+    operator = "**"
+
+
+print("The Result is: ", calc(operator, num1, num2))    #Printing the results by calling the function with all 3 arguments
+
+"""
+Part 3:
+Write a for loop to display all the integers in the range 100-2000 that are 
+divisible by 7. 
+"""
+n = 100             #Our starting number for n
+for n in range(100,2001):   #starting at 100 and ending at 2001 since the loop is inclusive
+    n += 1                  #Adding one to n wiht each loop irretation
+    if (n % 7) == 0:        #Checking if the remainder is equal to 0 so we can identify the devision by 7
+        print(n, " is divisble by 7")   #if it is equal to 0 then print out the the number of the current loop irretation
