@@ -1,0 +1,52 @@
+#CHAPTER 11
+
+'''
+0 1 1 2 3 5 8 13 21
+
+f(n)
+    key     Value
+  input(n)  output
+    0         0
+    0         0
+
+
+
+'''
+
+def fib(n,cache):
+    if n in cache:
+        return cache[n]
+    if n <= 1:
+        r = n
+    else:
+        r =  fib(n-1,cache) + fib(n-2,cache)
+    cache[n] = r
+    return r
+cache = {}
+for i in range(20):
+    print(fib(i,cache), end='\t')
+
+#LRU Cache (built in function)
+#Least Recently Used Cache
+
+
+from functools import lru_cache
+@lru_cache()    #How to add the cache to a function
+def fib2(n):
+    if n <=1:
+        return n
+    return fib2(n-1) + fib2(n-2)
+print(fib2(200))
+
+def calculate(compute, a,b):
+    return compute(a,b)
+
+def add(x,y):
+    return x+y
+
+result = calculate(lambda x, y : x+ y,8,9)
+print(result)
+
+print(list(map(lambda n: 2*n,[3,4,2,7])))
+
+print(list(map(len,['feifiemiec','aeifjeimiea','mcpkemamipfima'])))
