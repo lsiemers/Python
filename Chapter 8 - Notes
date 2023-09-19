@@ -1,0 +1,219 @@
+#CHAPTER 8
+
+#Sequence - A collection of data Items also called List or Arrays
+
+a = [1,2,3,4,5,6,7]                             #Valued list or Sequence
+bools = [True,False,False and True, 4 > 3]      #Sequence of Boolean variables
+floats = [1.2,2.3,3.4]                          #Sequence of Floats
+students = ["Lukas Siemers","Noah", "Boaying"]  #Sequence of Names
+
+#Starting of at 0 so for A0 we would get 1
+
+print(a[5])
+print(len(a))                                   #Gives us the length of the number of Elements in the Array
+
+def lastElement(seq):
+    return seq[len(seq)-1]                      #len allows us to see the size of the array and negative -1 allows us to access the last element
+                                                #LEN (Legth of Sequence)
+print(lastElement(a))
+print(lastElement(students))
+
+for i in range(len(a)):                         #Loops till the length of the Sequence
+    print(a[i])                                 #Prints the current element in the sequece due to "i"
+
+for student in students:                        #for "each" in Array
+    print(student)                              #student would be the Index in this loop
+
+counter = 0
+while counter < len(students):
+    print(students[counter])
+    counter += 1
+
+#create a sequence to hold your average scores for assignments,projects and exams
+#calculate the total based upon this logic:
+#total = assignment + projects + exames
+
+assignemnts = 42
+projects = 83
+exams = 100
+total = 0
+
+scores = [assignemnts,projects,exams]   #Sequence which holds our scores
+
+for k in range(len(scores)):            #Looping thru the scores
+    total += scores[k]                  #Combining the scores of the current postions 'k'
+print(total)                            #Printing the total
+
+total = 0
+for score in scores:
+    total += score
+print(total)
+
+i = 0
+final = 0
+while i < len(scores):
+    final += scores[i]
+    i += 1
+print(final)
+
+greeting = "Hello"  #["H","E","L","L","O"]
+print(greeting[0:4:2])
+
+def test(text):
+    print(text[1::1])
+print(test("Hellooowewewew"))
+
+#Slicing - To access a sub Sequence from a Sequence
+
+S = [4,3,2,7,5,1]
+print(S[1:4])       #S[1:4] -> 3,2,7    will not include the 4th position, so its similiar to -1
+print(S[:3])        #starts from position 0 and end at the desinated number
+print(S[1:])        #Starts at the designated number and displays the whole array
+print(S[:])         #Displays the whole Array(Sequence)
+print(S[-5:-1])     #Defines the range from the back of the list so last index -1 and then move 5 positon from there but only displys 4
+print(S[1:5:2])     #We can determine Steps so beginning:end:Step
+print(S[::-1])      #To Reverse the order of the numbers we need to specify the step with a negative number
+print(S[4:1:-1])    #To specify the Range of the Reserved Index
+
+#We can not assign a new String to an existing string.
+#sub_str = test[2:5]      #Allows us to slice the string
+
+#print(test is substr)   #Used to verfiy if two objects are equal to each other
+
+#newtest = test + "world"   #Adding a new line to the string value we have already
+
+#We can use double == to see if string objects are equal.
+
+#SORTING
+
+a.append(9)     #Will add the number 9 to the already established array
+print(a.pop(0)) #Will pop out the number at the index of 0
+S.sort(reverse=True)     #.sort will sort the array, reversed=True will sort the array reversed
+
+def linearSearch(s,t):
+    for i in range(len(s)): #looping thru the range of s
+        if s[i] == t:       #Checking if the current letter is equal for our target letter
+            return i        #returning the position
+    return -1               #Otherwise we will return -1
+
+print(linearSearch("Banana","n"))   #we can look for string characters with this functions
+
+#.upper()   will Uppercase the whole string
+#.lower()   will Lowercase the whole string
+#.find(target,start,end)    We can search for characters in a string, gives us back the index of the current position
+#.replace(current,target) .replace(lukas,kirsten) lukas@gmail.com -> kirsten@gmail.com
+print("Lukas\n")    #\n will create an empty line before the new string
+print("Lukas2")
+#.count('e') will count how many e's we will have in a string
+#.islower()  will check to see if all letters are lowercase (Boolean Value)
+#.isupper()  will check to see if all letters are Uppercase (Boolean Value)
+#.capitalize will capilize the first charcter of the string
+
+
+#Optional Argument
+
+def classScore(score=0):
+    return score >= 70
+
+print(classScore())     #Will return default value of 0 just as assgined in the function definition
+print(classScore(score = 81))       #This will work as well
+
+#The in Operator
+
+b = [1,2,3,4,5]
+
+print(2 in b)   #Allows us to check single variables in the array B this would be True
+print(6 in b)   #This would be False
+
+hello = "hello world"
+print('hello' in hello)
+
+#String Comparison
+    #Case sensitive, we can upper or lower to compare strings more easily for characters
+s1 = "ABcDe"
+s2 = "abCdE"
+
+print(s1 == s2)
+print(s1.lower() == s2.lower())
+print(s1 < s2)
+
+def isPalindrome(s):
+    i=0
+    j=len(s)-1
+    while i <= j:
+       if s[i] != s[j]:
+        return False
+       i += 1
+       j -= 1
+    return True
+
+print(isPalindrome("abccba"))
+print(isPalindrome("abccfba"))
+
+def isPalindrome2(s):
+    for i in range(len(s)//2):
+        if s[i] == s[len(s)-1-i]:   #Increments and decrements by its own due to the i in range
+            return False
+    return True
+
+print(isPalindrome2("acbdabca"))
+
+def isPlaindrom3(s):
+    return s[:] == s[::-1]
+
+print(isPlaindrom3("abba"))
+
+#ORD AND CHARACTERS
+
+print(ord("a"))     #Gives us the ACSII Value of the current character
+print(chr(72))      #Gives us the charactrer of the ASCII Value
+
+#Encryption and Decryption
+
+def caserCipher(s,key=0):
+    alphabet = "ABCDEFGHIKLMMOPQRSTUVWXYZ"
+    res =""
+    for ch in s.upper():
+        pos = alphabet.find(ch)
+        res += chr((pos + key) % 26 + ord("A"))
+    return res
+print(caserCipher("Lukas Siemers is 25 years old",6))
+
+#How to count letter Frequencies
+#Input - any string
+#Output - a list of size 26 that represent the frequencies of a - z
+def letterFrequency(string):
+    lst = [0]*26    #Empty list, Array, we can create 26 spaces by multiplying it by 26
+    for char in string:
+        diff = ord(chr) - ord('a')
+        if (diff >= 26) or (diff< 0):
+            continue
+            lst[diff] += 1
+            #lst[ord(chr) - ord('a')] += 1
+    return lst
+
+#while True:
+    #user_input = input("Please type any string: ")
+    #if user_input.lower() == "done":
+      #  break
+
+#print(letterFrequency(user_input))
+
+t1 = (1,2,3,4,5)    #Tuple, a variable with different meaning
+#    (Age, Gender, Name, is_Local)
+t2 = (18, 'Male','Lukas', True)
+
+print(t2)
+print(t1)
+
+def qoutiend_and_remainder(a,b):
+    return a // b, a % b        #Allows us to return to statements
+
+print(qoutiend_and_remainder(10,6))
+
+for field in t2:    #Allows us to print each individual field in the Tuple t2
+    print(field)
+
+for i in range(len(t2)):
+    print(t2[i])
+
